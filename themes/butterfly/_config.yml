@@ -35,8 +35,11 @@ copy:
 # formal:
 #   icon: link || the description
 social:
-  # fab fa-github: https://github.com/xxxxx || Github
+  fab fa-github: https://github.com/StellarX || Github
   # fas fa-envelope: mailto:xxxxxx@gmail.com || Email
+  fab fa-edge: https://blog.csdn.net/rakish_wind || CSDN
+# https://blog.csdn.net/victoryxa/article/details/103733655
+# http://www.fontawesome.com.cn/icons/github/
 
 # search (搜索)
 # --------------------------------------
@@ -624,7 +627,7 @@ aside:
     enable: true
     description:
     button:
-      enable: true
+      enable: false
       icon: fab fa-github
       text: Follow Me
       link: https://github.com/StellarX
