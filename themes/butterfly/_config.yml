@@ -758,15 +758,19 @@ note:
 # It may contain bugs and unstable, give feedback when you find the bugs.
 # https://github.com/MoOx/pjax
 pjax:
-  enable: false
+  enable: true # 这样切换页面时，aplayer不会中断
   exclude:
     # - xxxx
     # - xxxx
 
 # Inject the css and script (aplayer/meting)
 aplayerInject:
-  enable: false
+  enable: true
   per_page: true
+
+aplayer:
+  meting: true
+  asset_inject: false
 
 # Snackbar (Toast Notification 彈窗)
 # https://github.com/polonel/SnackBar
@@ -821,7 +825,10 @@ inject:
   head:
     # - <link rel="stylesheet" href="/xxx.css">
   bottom:
-    # - <script src="xxxx"></script>
+     - <div class="aplayer no-destroy" data-id="6844378670" data-server="netease" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="false" muted></div>
+# data-server：netease, tencent, kugou, xiami, baidu
+# data-type：song, playlist, album, search, artist
+# 参考：https://nies.live/d/165
 
 # CDN
 # Don't modify the following settings unless you know how they work
