@@ -6,7 +6,7 @@ menu:
   首页: / || fas fa-home
   时间轴: /archives/ || fas fa-archive
   标签: /tags/ || fas fa-tags
-  #分类: /categories/ || fas fa-folder-open
+  分类: /categories/ || fas fa-folder-open
   #清单||fas fa-list:
     #Music: /music/ || fas fa-music
     #Movie: /movies/ || fas fa-video
@@ -109,12 +109,12 @@ tag_per_img: https://images.pexels.com/photos/3601453/pexels-photo-3601453.jpeg?
 
 # If the banner of category page not setting, it will show the top_img
 # note: category page, not categories page (子分類頁面的 top_img)
-category_img:
+category_img: https://images.pexels.com/photos/3601453/pexels-photo-3601453.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260
 
 # The banner image of category page
 # format:
 #  - category name: xxxxx
-category_per_img:
+category_per_img: https://images.pexels.com/photos/3601453/pexels-photo-3601453.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260
 
 cover:
   # display the cover or not (是否顯示文章封面)
@@ -402,7 +402,7 @@ footer:
     enable: true
     since: 2020
   custom_text:
-  copyright: true # Copyright of theme and framework
+  copyright: false # Copyright of theme and framework
 
 # Analysis
 # --------------------------------------
