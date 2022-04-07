@@ -158,7 +158,7 @@ post_meta:
 
 # wordcount (字數統計)
 wordcount:
-  enable: false
+  enable: true
   post_wordcount: true
   min2read: true
   total_wordcount: true
@@ -230,12 +230,12 @@ post_pagination: 1
 
 # Displays outdated notice for a post (文章過期提醒)
 noticeOutdate:
-  enable: false
-  style: flat # style: simple/flat
-  limit_day: 500 # When will it be shown
+  enable: true
+  style: simple # style: simple/flat
+  limit_day: 365 # When will it be shown
   position: top # position: top/bottom
-  message_prev: It has been
-  message_next: days since the last update, the content of the article may be outdated.
+  message_prev: 这篇文章是
+  message_next: 天前发布的，内容可能已经过时了哦~~
 
 # Share System (分享功能)
 # --------------------------------------
