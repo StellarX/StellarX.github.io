@@ -69,8 +69,8 @@ search:
 
 # MathJax
 mathjax:
-  enable: false
-  per_page: false
+  enable: true
+  per_page: true
 
 # KaTeX
 katex:
