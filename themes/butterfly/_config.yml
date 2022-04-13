@@ -70,7 +70,7 @@ search:
 # MathJax
 mathjax:
   enable: true
-  per_page: true
+  per_page: false
 
 # KaTeX
 katex:
