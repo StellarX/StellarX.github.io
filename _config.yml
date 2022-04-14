@@ -111,4 +111,5 @@ deploy:
   repo: 
 #    coding: git@e.coding.net:qqyang/fun/fun,master
     github: git@github.com:StellarX/StellarX.github.io,master
+#    gitee: git@gitee.com:muyi2605578650/stellarx.git,master
 #  branch: master
