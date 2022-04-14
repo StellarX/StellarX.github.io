@@ -174,9 +174,9 @@
             
             <tag> 递归 </tag>
             
-            <tag> 回溯 </tag>
-            
             <tag> 组合 </tag>
+            
+            <tag> 回溯 </tag>
             
             <tag> 剪枝 </tag>
             
@@ -207,9 +207,9 @@
             
             <tag> 递归 </tag>
             
-            <tag> 排列 </tag>
-            
             <tag> 回溯 </tag>
+            
+            <tag> 排列 </tag>
             
         </tags>
       
