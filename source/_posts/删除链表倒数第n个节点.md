@@ -18,6 +18,7 @@ date: 2022-04-12 20:08:42
 # 分析
 - 单链表如何找到倒数第n个节点？
 - 利用`双指针`，别忘了考虑特殊情况
+- 特殊情况其实就是删除头节点
 
 # Java实现
 ```java
@@ -33,20 +34,17 @@ date: 2022-04-12 20:08:42
  */
 class Solution {
     public ListNode removeNthFromEnd(ListNode head, int n) {
-        ListNode front = head, back = head, p = head;
-        for(int i = 0; i < n - 1; ++i)
-            back = back.next;
-        while(back.next != null) {
-            back = back.next;
-            front = front.next;
-        }
-        if(front == head) {//special case: delete head node
-            head = head.next;
+        ListNode left = head, right = head;
+        for(int i = 0; i < n; ++i) right = right.next;
+        if(right == null) {//special case: delete head
+            head = left.next;
             return head;
         }
-        while(p.next != front)
-            p = p.next;
-        p.next = front.next;
+        while(right.next != null) {
+            left = left.next;
+            right = right.next;
+        }
+        left.next = left.next.next;
         return head;
     }
 }
