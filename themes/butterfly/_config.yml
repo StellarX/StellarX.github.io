@@ -38,7 +38,7 @@ social:
   fab fa-github: https://github.com/StellarX || Github
   # fas fa-envelope: mailto:xxxxxx@gmail.com || Email
   fab fa-edge: https://blog.csdn.net/rakish_wind || CSDN
-  fab fa-book: https://gitee.com/muyi2605578650/note || NoteBook
+  fa fa-book: https://gitee.com/muyi2605578650/note || NoteBook
 # https://blog.csdn.net/victoryxa/article/details/103733655
 # http://www.fontawesome.com.cn/icons/github/
 
@@ -613,6 +613,8 @@ subtitle:
   # 如果關閉打字效果，subtitle 只會顯示 sub 的第一行文字
   sub:
     - 时间之外的宇宙
+    - 那些不经意想起的，总是记忆里最深刻的
+    - 人的一切痛苦，本质上都是对自己无能的愤怒
 
 # Loading Animation (加載動畫)
 preloader: false
