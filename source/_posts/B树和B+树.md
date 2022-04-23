@@ -11,6 +11,7 @@ cover: >-
   https://images.pexels.com/photos/3934514/pexels-photo-3934514.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500
 abbrlink: 17ced2c4
 date: 2022-04-22 19:27:06
+mathjax: true
 ---
 # B-树
 ## B-树的特点
