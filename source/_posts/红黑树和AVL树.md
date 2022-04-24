@@ -4,6 +4,7 @@ tags:
   - 红黑树
   - AVL树
   - 平衡树
+  - 二叉树
   - note
 categories: 算法与数据结构
 abbrlink: f89cb603
