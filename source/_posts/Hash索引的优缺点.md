@@ -1,7 +1,8 @@
 ---
 title: Hash索引的优缺点
 tags:
-  - Hash
+  - hash
+  - note
 categories:
   - 算法与数据结构
 abbrlink: ecc489df
