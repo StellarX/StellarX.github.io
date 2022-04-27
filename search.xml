@@ -4,6 +4,54 @@
   
     
     <entry>
+      <title>重建二叉树</title>
+      <link href="/post/97fc4ab0.html"/>
+      <url>/post/97fc4ab0.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p><a href="https://leetcode-cn.com/problems/zhong-jian-er-cha-shu-lcof/">重建二叉树</a></p><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ul><li>用递归</li><li>int root_index_inorder = inMap.get(pre[root]); //取出在中序的index</li><li>node.left = recur(root + 1, in_left, root_index_inorder - 1);<ul><li>左子树先序序列中的根的索引、中序序列的左端、中序序列的右端</li></ul></li><li>node.right = recur(root + 1 + root_index_inorder - in_left, root_index_inorder + 1, in_right);<ul><li>左子树长度 + 根节点索引 + 1</li><li>其中左子树长度 = <strong>root_index_inorder - in_left</strong></li><li>记住要加1，写个数组看看就知道为什么了</li></ul></li></ul><h2 id="Java实现"><a href="#Java实现" class="headerlink" title="Java实现"></a>Java实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="type">int</span>[] pre;</span><br><span class="line">    <span class="keyword">private</span> HashMap&lt;Integer, Integer&gt; inMap = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">    <span class="keyword">public</span> TreeNode <span class="title function_">buildTree</span><span class="params">(<span class="type">int</span>[] preorder, <span class="type">int</span>[] inorder)</span> &#123;</span><br><span class="line">        pre = preorder;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; inorder.length; ++i) inMap.put(inorder[i], i);</span><br><span class="line">        <span class="keyword">return</span> recur(<span class="number">0</span>, <span class="number">0</span>, inorder.length - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">private</span> TreeNode <span class="title function_">recur</span><span class="params">(<span class="type">int</span> root, <span class="type">int</span> in_left, <span class="type">int</span> in_right)</span>&#123;</span><br><span class="line">        <span class="comment">//子树的先序根、中序开始、中序结束 下标</span></span><br><span class="line">        <span class="keyword">if</span>(in_left &gt; in_right) <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="type">TreeNode</span> <span class="variable">node</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">TreeNode</span>(pre[root]);</span><br><span class="line">        <span class="type">int</span> <span class="variable">root_index_inorder</span> <span class="operator">=</span> inMap.get(pre[root]);</span><br><span class="line">        node.left = recur(root + <span class="number">1</span>, in_left, root_index_inorder - <span class="number">1</span>);</span><br><span class="line">        node.right = recur(root + <span class="number">1</span> + root_index_inorder - in_left, root_index_inorder + <span class="number">1</span>, in_right);</span><br><span class="line">        <span class="keyword">return</span> node;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法与数据结构 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 二叉树 </tag>
+            
+            <tag> 递归 </tag>
+            
+            <tag> leetcode </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>麦田里的守望者</title>
+      <link href="/post/13f4c317.html"/>
+      <url>/post/13f4c317.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 文摘与笔记 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>跳表简介</title>
       <link href="/post/4fcf58fa.html"/>
       <url>/post/4fcf58fa.html</url>
@@ -47,7 +95,9 @@
       
         <tags>
             
-            <tag> Hash </tag>
+            <tag> hash </tag>
+            
+            <tag> note </tag>
             
         </tags>
       
@@ -91,11 +141,11 @@
       
         <tags>
             
-            <tag> 二叉树 </tag>
+            <tag> note </tag>
             
             <tag> 平衡树 </tag>
             
-            <tag> note </tag>
+            <tag> 二叉树 </tag>
             
             <tag> 红黑树 </tag>
             
@@ -124,13 +174,13 @@
       
         <tags>
             
+            <tag> note </tag>
+            
             <tag> B树 </tag>
             
             <tag> B+树 </tag>
             
             <tag> 平衡树 </tag>
-            
-            <tag> note </tag>
             
         </tags>
       
@@ -155,9 +205,9 @@
       
         <tags>
             
-            <tag> 二叉树 </tag>
-            
             <tag> 二分法 </tag>
+            
+            <tag> 二叉树 </tag>
             
             <tag> 二叉排序树 </tag>
             
@@ -371,9 +421,9 @@
       
         <tags>
             
-            <tag> 快速幂 </tag>
-            
             <tag> 位运算 </tag>
+            
+            <tag> 快速幂 </tag>
             
         </tags>
       
@@ -514,11 +564,11 @@
       
         <tags>
             
+            <tag> 二叉树 </tag>
+            
             <tag> 二叉堆 </tag>
             
             <tag> 优先队列 </tag>
-            
-            <tag> 二叉树 </tag>
             
         </tags>
       
