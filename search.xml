@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>最长公共子序列</title>
+      <link href="/post/dc6556d9.html"/>
+      <url>/post/dc6556d9.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><ul><li><a href="https://leetcode-cn.com/problems/qJnOS7/">最长公共子序列</a></li><li>longest common subsequence<h1 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h1></li><li><p>这是一个二维的动态规划问题<br><img src="../img/LCS.jpg" alt=""><br><img src="../img/LCS2.jpg" alt=""><br><img src="../img/LCS3.jpg" alt=""></p></li><li><p>关于不相等的转移方程：可以这么理解：既然两个位置不等，那么就求这两个位置之前的一个最大值</p></li><li>而显然，越靠近这两个位置的值越大，那么就取各自减1的位置就行了</li><li>这个不相等时的转移方程是一定要有的，因为不像最大公共子串，它维护了一个最大值，一旦不相等了不需要看前面的累计，不需要任何处理，继续往下走就行</li><li>而这里是求子序列，序列是可以不连续的，所以必须每个点都要存值<h1 id="Java实现"><a href="#Java实现" class="headerlink" title="Java实现"></a>Java实现</h1></li></ul><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">longestCommonSubsequence</span><span class="params">(String text1, String text2)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">len1</span> <span class="operator">=</span> text1.length();</span><br><span class="line">        <span class="type">int</span> <span class="variable">len2</span> <span class="operator">=</span> text2.length();</span><br><span class="line">        <span class="type">int</span>[][] dp = <span class="keyword">new</span> <span class="title class_">int</span>[len1 + <span class="number">1</span>][len2 + <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt;= len1; ++i)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">1</span>; j &lt;= len2; ++j)&#123;</span><br><span class="line">                <span class="keyword">if</span>(text1.charAt(i - <span class="number">1</span>) == text2.charAt(j - <span class="number">1</span>)) dp[i][j] = dp[i - <span class="number">1</span>][j - <span class="number">1</span>] + <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">else</span> dp[i][j] = Math.max(dp[i - <span class="number">1</span>][j], dp[i][j - <span class="number">1</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[len1][len2];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法与数据结构 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> leetcode </tag>
+            
+            <tag> dp </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>最长上升子序列LIS</title>
       <link href="/post/120cb8fb.html"/>
       <url>/post/120cb8fb.html</url>
