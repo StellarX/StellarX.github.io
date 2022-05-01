@@ -4,11 +4,36 @@
   
     
     <entry>
+      <title>连续子数组的最大和</title>
+      <link href="/post/40b2b7b.html"/>
+      <url>/post/40b2b7b.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><ul><li><a href="https://leetcode-cn.com/problems/lian-xu-zi-shu-zu-de-zui-da-he-lcof/">连续子数组的最大和</a>，或者叫<code>最大子段和</code></li></ul><h1 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h1><ul><li>用dp</li><li>对于全是非正数的序列，答案明显就是其中的元素的最大值</li><li>对于有正数的序列，考虑以每一个点为结尾的最大子段和，这个子段一定满足其前缀和均非负，因为如果有一个前缀是负的，那么减掉这个前缀对于这个点一定更优，并且这个子段要尽量往前延伸</li><li>所以我们可以只用一次扫描，记录目前统计的和sum以及答案ans。当sum加上当前位置这个数还是正数的时候就继续累加sum，否则就将sum置为0。这样就舍掉了所有前缀是负数的情况，并且保证了这个子段尽可能的长了，也就是说扫描中记录的sum就是以每一个点为结尾的最大子段和，每一次如果sum比ans大就可以更新ans。</li><li>最后ans就是整体的最大子段和。</li><li>时间复杂度O(N)。</li></ul><p><img src="../img/zuidaziduanhe.jpg" alt="最大子段和"></p><h1 id="Java实现"><a href="#Java实现" class="headerlink" title="Java实现"></a>Java实现</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">maxSubArray</span><span class="params">(<span class="type">int</span>[] nums)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">sum</span> <span class="operator">=</span> <span class="number">0</span>, ans = <span class="number">0</span>, max = nums[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; nums.length; ++i)</span><br><span class="line">            <span class="keyword">if</span>(nums[i] &gt; max) max = nums[i];</span><br><span class="line">        <span class="keyword">if</span>(max &lt;= <span class="number">0</span>) <span class="keyword">return</span> max;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; nums.length; ++i)&#123;</span><br><span class="line">                sum += nums[i];</span><br><span class="line">                <span class="keyword">if</span>(sum &lt; <span class="number">0</span>) sum = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">if</span>(sum &gt; ans) ans = sum;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> ans;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ul><li>简洁版<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">maxSubArray</span><span class="params">(<span class="type">int</span>[] nums)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">res</span> <span class="operator">=</span> nums[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">            nums[i] += Math.max(nums[i - <span class="number">1</span>], <span class="number">0</span>);</span><br><span class="line">            res = Math.max(res, nums[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li>暴力法（超时）<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">maxSubArray</span><span class="params">(<span class="type">int</span>[] nums)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">sum</span> <span class="operator">=</span> <span class="number">0</span>, ans = -<span class="number">2147483648</span>, len = nums.length;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; len; ++i)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; len - i; ++j)&#123;</span><br><span class="line">                <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">k</span> <span class="operator">=</span> i; k &lt;= i + j; ++k)&#123;</span><br><span class="line">                    sum += nums[k];</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(sum &gt; ans) ans = sum;</span><br><span class="line">                sum = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法与数据结构 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> dp </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>重建二叉树</title>
       <link href="/post/97fc4ab0.html"/>
       <url>/post/97fc4ab0.html</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p><a href="https://leetcode-cn.com/problems/zhong-jian-er-cha-shu-lcof/">重建二叉树</a></p><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ul><li>用递归</li><li>int root_index_inorder = inMap.get(pre[root]); //取出在中序的index</li><li>node.left = recur(root + 1, in_left, root_index_inorder - 1);<ul><li>左子树先序序列中的根的索引、中序序列的左端、中序序列的右端</li></ul></li><li>node.right = recur(root + 1 + root_index_inorder - in_left, root_index_inorder + 1, in_right);<ul><li>左子树长度 + 根节点索引 + 1</li><li>其中左子树长度 = <strong>root_index_inorder - in_left</strong></li><li>记住要加1，写个数组看看就知道为什么了</li></ul></li></ul><h2 id="Java实现"><a href="#Java实现" class="headerlink" title="Java实现"></a>Java实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="type">int</span>[] pre;</span><br><span class="line">    <span class="keyword">private</span> HashMap&lt;Integer, Integer&gt; inMap = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">    <span class="keyword">public</span> TreeNode <span class="title function_">buildTree</span><span class="params">(<span class="type">int</span>[] preorder, <span class="type">int</span>[] inorder)</span> &#123;</span><br><span class="line">        pre = preorder;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; inorder.length; ++i) inMap.put(inorder[i], i);</span><br><span class="line">        <span class="keyword">return</span> recur(<span class="number">0</span>, <span class="number">0</span>, inorder.length - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">private</span> TreeNode <span class="title function_">recur</span><span class="params">(<span class="type">int</span> root, <span class="type">int</span> in_left, <span class="type">int</span> in_right)</span>&#123;</span><br><span class="line">        <span class="comment">//子树的先序根、中序开始、中序结束 下标</span></span><br><span class="line">        <span class="keyword">if</span>(in_left &gt; in_right) <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="type">TreeNode</span> <span class="variable">node</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">TreeNode</span>(pre[root]);</span><br><span class="line">        <span class="type">int</span> <span class="variable">root_index_inorder</span> <span class="operator">=</span> inMap.get(pre[root]);</span><br><span class="line">        node.left = recur(root + <span class="number">1</span>, in_left, root_index_inorder - <span class="number">1</span>);</span><br><span class="line">        node.right = recur(root + <span class="number">1</span> + root_index_inorder - in_left, root_index_inorder + <span class="number">1</span>, in_right);</span><br><span class="line">        <span class="keyword">return</span> node;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p><a href="https://leetcode-cn.com/problems/zhong-jian-er-cha-shu-lcof/">重建二叉树</a></p><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ul><li>用递归</li><li><code>int root_index_inorder = inMap.get(pre[root]);</code> //取出在中序的index</li><li><code>node.left = recur(root + 1, in_left, root_index_inorder - 1);</code><ul><li>左子树先序序列中的根的索引、中序序列的左端、中序序列的右端</li></ul></li><li><code>node.right = recur(root + 1 + root_index_inorder - in_left, root_index_inorder + 1, in_right);</code><ul><li>左子树长度 + 根节点索引 + 1</li><li>其中左子树长度 = <strong>root_index_inorder - in_left</strong></li><li>记住要加1，写个数组看看就知道为什么了</li></ul></li></ul><h2 id="Java实现"><a href="#Java实现" class="headerlink" title="Java实现"></a>Java实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="type">int</span>[] pre;</span><br><span class="line">    <span class="keyword">private</span> HashMap&lt;Integer, Integer&gt; inMap = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">    <span class="keyword">public</span> TreeNode <span class="title function_">buildTree</span><span class="params">(<span class="type">int</span>[] preorder, <span class="type">int</span>[] inorder)</span> &#123;</span><br><span class="line">        pre = preorder;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; inorder.length; ++i) inMap.put(inorder[i], i);</span><br><span class="line">        <span class="keyword">return</span> recur(<span class="number">0</span>, <span class="number">0</span>, inorder.length - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">private</span> TreeNode <span class="title function_">recur</span><span class="params">(<span class="type">int</span> root, <span class="type">int</span> in_left, <span class="type">int</span> in_right)</span>&#123;</span><br><span class="line">        <span class="comment">//子树的先序根、中序开始、中序结束 下标</span></span><br><span class="line">        <span class="keyword">if</span>(in_left &gt; in_right) <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="type">TreeNode</span> <span class="variable">node</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">TreeNode</span>(pre[root]);</span><br><span class="line">        <span class="type">int</span> <span class="variable">root_index_inorder</span> <span class="operator">=</span> inMap.get(pre[root]);</span><br><span class="line">        node.left = recur(root + <span class="number">1</span>, in_left, root_index_inorder - <span class="number">1</span>);</span><br><span class="line">        node.right = recur(root + <span class="number">1</span> + root_index_inorder - in_left, root_index_inorder + <span class="number">1</span>, in_right);</span><br><span class="line">        <span class="keyword">return</span> node;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -22,9 +47,9 @@
             
             <tag> 二叉树 </tag>
             
-            <tag> 递归 </tag>
-            
             <tag> leetcode </tag>
+            
+            <tag> 递归 </tag>
             
         </tags>
       
@@ -37,7 +62,7 @@
       <link href="/post/13f4c317.html"/>
       <url>/post/13f4c317.html</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote><p>这是一部中短篇小说，讲述了一个处于青春期的叛逆少年的故事，文风比较直接，还包含很多脏话，但某一刻，某一句话，会突然击中你的灵魂，这就是这本书的魅力。</p><p>以下是一些文摘</p></blockquote><p>我不在乎是悲伤的离别还是不痛快的离别，只要是离开一个地方，我总希望离开的时候心中有数。<br>可你要是参加了另外那一边，一点实力也没有，那么还赛得了什么球？什么也赛不成。根本谈不上什么球赛。<br>我自己从来不跟任何人说运气好。只要仔细想想，就会觉得这话真是可怕。<br>我脱下帽子看了第九十遍。<br>我差点倒在地上死了。<br>我只说了一句：问问她下棋的时候是不是还把所有的国王都留在后排。<br>他死的那天我睡在汽车房里，用拳头把那些混账玻璃全打碎了。<br>我只记得我又躺在混账地板上了。<br>我有点害怕，也有点神往。这一片血污倒让我看上去像个好汉。<br>我敢打赌我把这一层楼的所有杂种全都喊醒了。<br>跟琴（Jean）握手,你甚至都不会担心自己的手是不是在出汗。你只知道自己很快乐。你的确很快乐。<br>我见了真把她爱煞。<br>我这一哭，可把老菲苾吓坏了。<br>寻找只是他们认为自己的环境无法提供的东西。<br>一个不成熟男子的标志是他愿意为某种事业英勇地死去，一个成熟男子的标志是他愿意为某种事业卑微的活着。<br>好像永远到不了街对面。<br>她一说这话，我差点摔倒在地上。<br>突然间我变得他妈的那么快乐，眼看着老菲苾那么一圈圈转个不停。<br>说来好笑，你千万别跟任何人谈任何事，你只要一谈起，就会想念起每一个人来。</p><p>——2017.10.25</p>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote><p>这是一部中短篇小说，讲述了一个处于青春期的叛逆少年的故事，文风比较直接，还包含很多脏话，但某一刻，某一句话，会突然击中你的灵魂，这就是这本书的魅力。</p><p>以下是一些文摘</p></blockquote><ul><li>我不在乎是悲伤的离别还是不痛快的离别，只要是离开一个地方，我总希望离开的时候心中有数。</li><li>可你要是参加了另外那一边，一点实力也没有，那么还赛得了什么球？什么也赛不成。根本谈不上什么球赛。</li><li>我自己从来不跟任何人说运气好。只要仔细想想，就会觉得这话真是可怕。</li><li>我脱下帽子看了第九十遍。</li><li>我差点倒在地上死了。</li><li>我只说了一句：问问她下棋的时候是不是还把所有的国王都留在后排。</li><li>他死的那天我睡在汽车房里，用拳头把那些混账玻璃全打碎了。</li><li>我只记得我又躺在混账地板上了。</li><li>我有点害怕，也有点神往。这一片血污倒让我看上去像个好汉。</li><li>我敢打赌我把这一层楼的所有杂种全都喊醒了。</li><li>跟琴（Jean）握手,你甚至都不会担心自己的手是不是在出汗。你只知道自己很快乐。你的确很快乐。</li><li>我见了真把她爱煞。</li><li>我这一哭，可把老菲苾吓坏了。</li><li>寻找只是他们认为自己的环境无法提供的东西。</li><li>一个不成熟男子的标志是他愿意为某种事业英勇地死去，一个成熟男子的标志是愿意为某种事业卑微的活着。</li><li>好像永远到不了街对面。</li><li>她一说这话，我差点摔倒在地上。</li><li>突然间我变得他妈的那么快乐，眼看着老菲苾那么一圈圈转个不停。</li><li>说来好笑，你千万别跟任何人谈任何事，你只要一谈起，就会想念起每一个人来。</li></ul><p>——2017.10.25</p>]]></content>
       
       
       <categories>
@@ -95,9 +120,9 @@
       
         <tags>
             
-            <tag> hash </tag>
-            
             <tag> note </tag>
+            
+            <tag> hash </tag>
             
         </tags>
       
@@ -141,9 +166,9 @@
       
         <tags>
             
-            <tag> note </tag>
-            
             <tag> 平衡树 </tag>
+            
+            <tag> note </tag>
             
             <tag> 二叉树 </tag>
             
@@ -174,13 +199,13 @@
       
         <tags>
             
-            <tag> note </tag>
-            
             <tag> B树 </tag>
             
             <tag> B+树 </tag>
             
             <tag> 平衡树 </tag>
+            
+            <tag> note </tag>
             
         </tags>
       
@@ -238,9 +263,9 @@
       
         <tags>
             
-            <tag> 递归 </tag>
-            
             <tag> leetcode </tag>
+            
+            <tag> 递归 </tag>
             
             <tag> 数论 </tag>
             
@@ -294,11 +319,11 @@
       
         <tags>
             
-            <tag> 递归 </tag>
-            
             <tag> leetcode </tag>
             
             <tag> dp </tag>
+            
+            <tag> 递归 </tag>
             
         </tags>
       
@@ -338,11 +363,11 @@
             
             <tag> 链表 </tag>
             
+            <tag> leetcode </tag>
+            
             <tag> 递归 </tag>
             
             <tag> 多指针 </tag>
-            
-            <tag> leetcode </tag>
             
         </tags>
       
@@ -369,9 +394,9 @@
             
             <tag> 链表 </tag>
             
-            <tag> leetcode </tag>
-            
             <tag> 双指针 </tag>
+            
+            <tag> leetcode </tag>
             
         </tags>
       
@@ -421,9 +446,9 @@
       
         <tags>
             
-            <tag> 位运算 </tag>
-            
             <tag> 快速幂 </tag>
+            
+            <tag> 位运算 </tag>
             
         </tags>
       
@@ -473,9 +498,9 @@
       
         <tags>
             
-            <tag> 递归 </tag>
-            
             <tag> leetcode </tag>
+            
+            <tag> 递归 </tag>
             
             <tag> 回溯 </tag>
             
@@ -506,9 +531,9 @@
       
         <tags>
             
-            <tag> 递归 </tag>
-            
             <tag> leetcode </tag>
+            
+            <tag> 递归 </tag>
             
             <tag> 排列 </tag>
             
@@ -564,11 +589,11 @@
       
         <tags>
             
-            <tag> 二叉树 </tag>
-            
             <tag> 二叉堆 </tag>
             
             <tag> 优先队列 </tag>
+            
+            <tag> 二叉树 </tag>
             
         </tags>
       
