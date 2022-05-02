@@ -1,9 +1,11 @@
 ---
 title: uva572-Oil-Deposits
-date: 2022-05-02 12:50:18
 tags:
-- uva
-- dfs
+  - uva
+  - dfs
+abbrlink: c4d7ec58
+date: 2022-05-02 12:50:18
+cover: https://images.pexels.com/photos/2748716/pexels-photo-2748716.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500
 ---
 
 # 题目
