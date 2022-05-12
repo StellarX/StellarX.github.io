@@ -7,6 +7,7 @@ menu:
   时间轴: /archives/ || fas fa-archive
   标签: /tags/ || fas fa-tags
   分类: /categories/ || fas fa-folder-open
+  图库: /gallery/ || fas fa-image
   #清单||fas fa-list:
     #Music: /music/ || fas fa-music
     #Movie: /movies/ || fas fa-video
@@ -94,9 +95,7 @@ avatar:
 disable_top_img: false
 
 # The banner image of home page
-index_img: https://images.pexels.com/photos/1166209/pexels-photo-1166209.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500
-# https://cdn.pixabay.com/photo/2018/08/15/13/10/galaxy-3608029_1280.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260
-# https://images.pexels.com/photos/3601453/pexels-photo-3601453.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260
+index_img: https://images.pexels.com/photos/3601453/pexels-photo-3601453.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260
 
 # If the banner of page not setting, it will show the top_img
 default_top_img: https://images.pexels.com/photos/3601453/pexels-photo-3601453.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260
