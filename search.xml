@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>k个一组翻转链表</title>
+      <link href="/post/5783bc85.html"/>
+      <url>/post/5783bc85.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><ul><li><a href="https://leetcode.cn/problems/reverse-nodes-in-k-group/">k个一组翻转链表</a></li></ul><h1 id="参考题解"><a href="#参考题解" class="headerlink" title="参考题解"></a>参考题解</h1><ul><li><a href="https://leetcode.cn/problems/reverse-nodes-in-k-group/solution/di-gui-java-by-reedfan-2/">递归Java</a></li></ul><h1 id="递归：Java实现"><a href="#递归：Java实现" class="headerlink" title="递归：Java实现"></a>递归：Java实现</h1><ul><li>时间复杂度：O(2n) = O(n)</li><li>空间复杂度：因为递归次数大概是n / k，所以O(n / k)</li></ul><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> ListNode <span class="title function_">reverseKGroup</span><span class="params">(ListNode head, <span class="type">int</span> k)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (head == <span class="literal">null</span> || head.next == <span class="literal">null</span>) <span class="keyword">return</span> head;</span><br><span class="line">    <span class="type">ListNode</span> <span class="variable">tail</span> <span class="operator">=</span> head;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; k; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (tail == <span class="literal">null</span>) <span class="keyword">return</span> head;</span><br><span class="line">        tail = tail.next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">ListNode</span> <span class="variable">newHead</span> <span class="operator">=</span> reverse(head, tail);</span><br><span class="line">    head.next = reverseKGroup(tail, k);</span><br><span class="line">    <span class="keyword">return</span> newHead;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">private</span> ListNode <span class="title function_">reverse</span><span class="params">(ListNode head, ListNode tail)</span> &#123;</span><br><span class="line">    <span class="type">ListNode</span> <span class="variable">pre</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">    <span class="type">ListNode</span> <span class="variable">next</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">while</span> (head != tail) &#123;</span><br><span class="line">        next = head.next;</span><br><span class="line">        head.next = pre;</span><br><span class="line">        pre = head;</span><br><span class="line">        head = next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> pre;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法与数据结构 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 链表 </tag>
+            
+            <tag> 递归 </tag>
+            
+            <tag> leetcode </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>数组中重复的数字</title>
       <link href="/post/8f265477.html"/>
       <url>/post/8f265477.html</url>
@@ -41,9 +70,9 @@
             
             <tag> dfs </tag>
             
-            <tag> bfs </tag>
-            
             <tag> 图论 </tag>
+            
+            <tag> bfs </tag>
             
         </tags>
       
@@ -62,9 +91,9 @@
       
         <tags>
             
-            <tag> dfs </tag>
-            
             <tag> uva </tag>
+            
+            <tag> dfs </tag>
             
         </tags>
       
@@ -170,11 +199,11 @@
       
         <tags>
             
-            <tag> 二叉树 </tag>
+            <tag> 递归 </tag>
             
             <tag> leetcode </tag>
             
-            <tag> 递归 </tag>
+            <tag> 二叉树 </tag>
             
         </tags>
       
@@ -245,9 +274,9 @@
       
         <tags>
             
-            <tag> note </tag>
-            
             <tag> hash </tag>
+            
+            <tag> note </tag>
             
         </tags>
       
@@ -291,9 +320,9 @@
       
         <tags>
             
-            <tag> 平衡树 </tag>
-            
             <tag> note </tag>
+            
+            <tag> 平衡树 </tag>
             
             <tag> 二叉树 </tag>
             
@@ -324,13 +353,13 @@
       
         <tags>
             
+            <tag> note </tag>
+            
             <tag> B树 </tag>
             
             <tag> B+树 </tag>
             
             <tag> 平衡树 </tag>
-            
-            <tag> note </tag>
             
         </tags>
       
@@ -388,9 +417,9 @@
       
         <tags>
             
-            <tag> leetcode </tag>
-            
             <tag> 递归 </tag>
+            
+            <tag> leetcode </tag>
             
             <tag> 数论 </tag>
             
@@ -444,11 +473,11 @@
       
         <tags>
             
+            <tag> 递归 </tag>
+            
             <tag> leetcode </tag>
             
             <tag> dp </tag>
-            
-            <tag> 递归 </tag>
             
         </tags>
       
@@ -488,9 +517,9 @@
             
             <tag> 链表 </tag>
             
-            <tag> leetcode </tag>
-            
             <tag> 递归 </tag>
+            
+            <tag> leetcode </tag>
             
             <tag> 多指针 </tag>
             
@@ -519,9 +548,9 @@
             
             <tag> 链表 </tag>
             
-            <tag> 双指针 </tag>
-            
             <tag> leetcode </tag>
+            
+            <tag> 双指针 </tag>
             
         </tags>
       
@@ -623,9 +652,9 @@
       
         <tags>
             
-            <tag> leetcode </tag>
-            
             <tag> 递归 </tag>
+            
+            <tag> leetcode </tag>
             
             <tag> 回溯 </tag>
             
@@ -656,9 +685,9 @@
       
         <tags>
             
-            <tag> leetcode </tag>
-            
             <tag> 递归 </tag>
+            
+            <tag> leetcode </tag>
             
             <tag> 排列 </tag>
             
