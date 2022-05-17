@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>删除链表的中间结点</title>
+      <link href="/post/436451d6.html"/>
+      <url>/post/436451d6.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><ul><li><a href="https://leetcode.cn/problems/delete-the-middle-node-of-a-linked-list/">删除链表的中间节点</a></li><li>给你一个链表的头节点 head 。删除 链表的 中间节点 ，并返回修改后的链表的头节点 head 。长度为 n 链表的中间节点是从头数起第 ⌊n / 2⌋ 个节点（下标从 0 开始），其中 ⌊x⌋ 表示小于或等于 x 的最大整数。</li></ul><h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><ul><li>还真没想到快慢指针，妙啊</li></ul><h1 id="Java实现"><a href="#Java实现" class="headerlink" title="Java实现"></a>Java实现</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode() &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int val) &#123; this.val = val; &#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int val, ListNode next) &#123; this.val = val; this.next = next; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> ListNode <span class="title function_">deleteMiddle</span><span class="params">(ListNode head)</span> &#123;</span><br><span class="line">        <span class="type">ListNode</span> <span class="variable">fast</span> <span class="operator">=</span> head, slow = head, pre = head;</span><br><span class="line">        <span class="keyword">while</span>(fast != <span class="literal">null</span> &amp;&amp; fast.next != <span class="literal">null</span>) &#123;</span><br><span class="line">            fast = fast.next.next;</span><br><span class="line">            pre = slow;</span><br><span class="line">            slow = slow.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(fast == head) <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">        pre.next = pre.next.next;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法与数据结构 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 链表 </tag>
+            
+            <tag> 快慢指针 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>反转链表II</title>
       <link href="/post/b17609ee.html"/>
       <url>/post/b17609ee.html</url>
@@ -809,6 +836,10 @@
             <tag> 链表 </tag>
             
             <tag> 环形问题 </tag>
+            
+            <tag> 指针法 </tag>
+            
+            <tag> 快慢指针 </tag>
             
         </tags>
       
