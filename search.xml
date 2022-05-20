@@ -22,6 +22,8 @@
             
             <tag> 链表 </tag>
             
+            <tag> leetcode </tag>
+            
             <tag> 快慢指针 </tag>
             
         </tags>
@@ -48,6 +50,8 @@
         <tags>
             
             <tag> 链表 </tag>
+            
+            <tag> leetcode </tag>
             
             <tag> 指针法 </tag>
             
@@ -204,11 +208,11 @@
       
         <tags>
             
+            <tag> leetcode </tag>
+            
             <tag> uva </tag>
             
             <tag> dfs </tag>
-            
-            <tag> leetcode </tag>
             
             <tag> 并查集 </tag>
             
@@ -391,9 +395,9 @@
       
         <tags>
             
-            <tag> hash </tag>
-            
             <tag> note </tag>
+            
+            <tag> hash </tag>
             
         </tags>
       
@@ -437,9 +441,9 @@
       
         <tags>
             
-            <tag> note </tag>
-            
             <tag> 平衡树 </tag>
+            
+            <tag> note </tag>
             
             <tag> 二叉树 </tag>
             
@@ -470,13 +474,13 @@
       
         <tags>
             
-            <tag> note </tag>
-            
             <tag> B树 </tag>
             
             <tag> B+树 </tag>
             
             <tag> 平衡树 </tag>
+            
+            <tag> note </tag>
             
         </tags>
       
@@ -835,11 +839,11 @@
             
             <tag> 链表 </tag>
             
-            <tag> 环形问题 </tag>
-            
             <tag> 指针法 </tag>
             
             <tag> 快慢指针 </tag>
+            
+            <tag> 环形问题 </tag>
             
         </tags>
       
@@ -893,9 +897,7 @@
       
         <tags>
             
-            <tag> 天文 </tag>
-            
-            <tag> 手册 </tag>
+            <tag> 科普 </tag>
             
         </tags>
       
@@ -919,10 +921,6 @@
       
       
         <tags>
-            
-            <tag> 天文 </tag>
-            
-            <tag> 手册 </tag>
             
             <tag> 科普 </tag>
             
