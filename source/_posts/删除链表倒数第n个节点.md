@@ -2,7 +2,7 @@
 title: 删除链表倒数第n个节点
 tags:
   - 链表
-  - 双指针
+  - 指针法
   - leetcode
 categories:
   - 算法与数据结构
