@@ -13,12 +13,14 @@
       
       <categories>
           
-          <category> 随笔 </category>
+          <category> 观点与感想 </category>
           
       </categories>
       
       
         <tags>
+            
+            <tag> 影视 </tag>
             
             <tag> 科幻 </tag>
             
@@ -38,7 +40,7 @@
       
       <categories>
           
-          <category> 随笔 </category>
+          <category> 观点与感想 </category>
           
       </categories>
       
@@ -63,10 +65,20 @@
       
       <categories>
           
-          <category> 文摘与笔记 </category>
+          <category> 观点与感想 </category>
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 科幻 </tag>
+            
+            <tag> 文摘 </tag>
+            
+            <tag> 读书 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -82,10 +94,16 @@
       
       <categories>
           
-          <category> 随笔 </category>
+          <category> 观点与感想 </category>
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 程序人生 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -101,10 +119,16 @@
       
       <categories>
           
-          <category> 随笔 </category>
+          <category> 观点与感想 </category>
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 自我提升 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -120,10 +144,16 @@
       
       <categories>
           
-          <category> 随笔 </category>
+          <category> 观点与感想 </category>
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 自我提升 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -139,10 +169,20 @@
       
       <categories>
           
-          <category> 文摘与笔记 </category>
+          <category> 观点与感想 </category>
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 文摘 </tag>
+            
+            <tag> 读书 </tag>
+            
+            <tag> 青春 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -158,10 +198,20 @@
       
       <categories>
           
-          <category> 文摘与笔记 </category>
+          <category> 观点与感想 </category>
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 文摘 </tag>
+            
+            <tag> 读书 </tag>
+            
+            <tag> 科技 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -175,6 +225,18 @@
         <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="关于hexo-butterfly主题的配置"><a href="#关于hexo-butterfly主题的配置" class="headerlink" title="关于hexo butterfly主题的配置"></a>关于hexo butterfly主题的配置</h1><h2 id="如何引入latex数学公式"><a href="#如何引入latex数学公式" class="headerlink" title="如何引入latex数学公式"></a>如何引入latex数学公式</h2><ul><li><a href="https://blog.csdn.net/qq_38496329/article/details/104065659">参考</a><h2 id="如何置顶文章"><a href="#如何置顶文章" class="headerlink" title="如何置顶文章"></a>如何置顶文章</h2></li><li><a href="https://blog.csdn.net/weixin_43372529/article/details/114176470">参考</a></li></ul><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ul><li>hexo butterfly 不支持 emoji                     </li></ul>]]></content>
       
       
+      <categories>
+          
+          <category> 科技 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 个人博客 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -190,7 +252,7 @@
       
       <categories>
           
-          <category> 科普 </category>
+          <category> 科技 </category>
           
       </categories>
       
@@ -215,7 +277,7 @@
       
       <categories>
           
-          <category> 科普 </category>
+          <category> 科技 </category>
           
       </categories>
       
