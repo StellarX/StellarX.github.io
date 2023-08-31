@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>全栈开发的意义</title>
+      <link href="/post/b12a5bb1.html"/>
+      <url>/post/b12a5bb1.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>全栈开发，大概就是指一个人开发一个产品的后端、前端（h5或app或小程序），以及服务的部署和维护</p><p>更广义的说，软件+硬件编程一条龙服务，比如你要做智能设备的话，那就还得会嵌入式编程</p><p>说白了，全栈开发没有尽头，所有事情都一个人做，就是全栈</p><p>最近快速过了一个比较简单的vue+springboot前后端分离的cms类型的项目，目的是为了了解前端开发的一些知识</p><p>看完这个项目后，感觉有如下收获：</p><ol><li>了解了前端的一些常识，就像后端的3层架构、pojo、maven这些，前端也有像vuex、vue-router、npm等，就是这些零散的知识多了解一下是很有益的</li><li>应该能够开发简单的vue应用了吧:) 可能需要多查阅资料，但感觉应该不难</li></ol><p>往全栈开发的方向靠，那么未来的可能性也会更多一些</p><p>另外一个人能单枪匹马做自己的网站，是一件很酷很有意义的事</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 科技 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 程序人生 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>微行动</title>
       <link href="/post/e4d7d3b6.html"/>
       <url>/post/e4d7d3b6.html</url>
@@ -309,7 +334,7 @@
             
             <tag> 读书 </tag>
             
-            <tag> 科技 </tag>
+            <tag> 社会 </tag>
             
         </tags>
       
